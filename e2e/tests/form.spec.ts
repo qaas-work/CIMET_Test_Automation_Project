@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test } from '../fixtures/screenshot-on-failure'
 import { generateValidFormDataForForm } from "../utils/dataGenerator";
 import { FormPage } from "../pages/formPage";
 

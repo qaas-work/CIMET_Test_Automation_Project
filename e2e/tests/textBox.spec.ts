@@ -1,6 +1,6 @@
-import { test, expect } from "@playwright/test";
 import { generateValidFormDataForTextBox } from "../utils/dataGenerator";
 import { TextBoxPage } from "../pages/textBoxPage";
+import { test } from '../fixtures/screenshot-on-failure'
 
 test.describe("Text Box Page", () => {
 
