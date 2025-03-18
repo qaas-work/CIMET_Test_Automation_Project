@@ -1,6 +1,7 @@
 import { Page, Locator, expect } from "@playwright/test";
 import { BasePage } from "./basePage";
 import { format } from "date-fns/format";
+import {createTestLogger} from "../utils/logger";
 
 export interface FormProps {
   firstName: string;
@@ -49,8 +50,9 @@ export class FormPage extends BasePage {
   private currAddressOutput: Locator;
   private stateAndCityOutput: Locator;
 
-  constructor(page: Page) {
-    super(page);
+
+  constructor(page: Page ,logger: ReturnType<typeof createTestLogger> ) {
+    super(page , logger);
 
     // Define locators once and reuse them
 
@@ -111,12 +113,15 @@ export class FormPage extends BasePage {
 
 
   async navigate() {
+    this.logger.info("Navigating to Form Page")
     await this.page.goto('https://demoqa.com/automation-practice-form', { waitUntil: 'commit' });
     await this.formHeading.waitFor()
   }
 
 
   async fillForm(formData: FormProps) {
+
+    this.logger.info("Filling the form with data")
 
     await this.firstNameInput.fill(formData.firstName)
     await this.lastNameInput.fill(formData.lastName)
@@ -145,10 +150,15 @@ export class FormPage extends BasePage {
   }
 
   async submitForm() {
+
+    this.logger.info("Submitting the form")
+
     await this.submitButton.click();
   }
 
   async validateFormSubmission(formData: FormProps) {
+
+    this.logger.info("Validating the form submission")
 
     await this.outputHeading.waitFor();
 

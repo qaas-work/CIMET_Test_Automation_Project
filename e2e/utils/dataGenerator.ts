@@ -1,8 +1,16 @@
 import { faker } from "@faker-js/faker";
 import { HobbiesType } from "../pages/formPage";
 import { format } from 'date-fns';
+import { createTestLogger } from "./logger";
 
-export function generateValidFormDataForTextBox() {
+interface loogerProp{
+    logger : ReturnType<typeof createTestLogger>
+}
+
+export function generateValidFormDataForTextBox(options : loogerProp) {
+
+    options.logger.info("Generating valid form data")
+
     const fullName = faker.person.fullName();
     const email = faker.internet.email();
     const currAddress = `${faker.location.streetAddress()}, ${faker.location.city()}, ${faker.location.state()} ${faker.location.zipCode()}, ${faker.location.country()}`;
@@ -11,7 +19,9 @@ export function generateValidFormDataForTextBox() {
     return formData
 }
 
-export function generateValidFormDataForForm(){
+export function generateValidFormDataForForm(options : loogerProp) {
+
+    options.logger.info("Generating valid form data")
 
     const firstName = faker.person.firstName();
     const lastName = faker.person.lastName();
