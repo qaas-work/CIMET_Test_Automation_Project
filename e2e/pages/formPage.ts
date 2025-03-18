@@ -8,7 +8,7 @@ export interface FormProps {
   email: string;
   gender: string;
   mobileNo: string;
-  dob: string;
+  dob: Date;
   subject: string;
   hobbies: HobbiesType[];
   filePath: string;

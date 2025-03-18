@@ -3,16 +3,20 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "report": "node ./report-utils/preAllureReport.js && allure generate ./allure-results -o ./allure-report --clean"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.51.0",
-    "@types/node": "^22.13.10"
+    "@types/node": "^22.13.10",
+    "allure-playwright": "^3.2.0"
   },
   "dependencies": {
     "@faker-js/faker": "^9.6.0",
+    "allure-js-commons": "^3.2.0",
     "date-fns": "^4.1.0",
     "dotenv": "^16.4.7"
   }

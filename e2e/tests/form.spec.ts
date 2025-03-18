@@ -1,11 +1,14 @@
-import { test, expect } from "@playwright/test";
+import { test } from '../fixtures/screenshot-on-failure'
 import { generateValidFormDataForForm } from "../utils/dataGenerator";
 import { FormPage } from "../pages/formPage";
+import { Severity } from "allure-js-commons";
+import { allure } from "allure-playwright";
 
 test.describe("Form Practice Page", () => {
 
     test("should fill the form with valid data", async ({ page }) => {
 
+        allure.severity(Severity.CRITICAL)
         const formPage = new FormPage(page)
 
         const formData = generateValidFormDataForForm()
