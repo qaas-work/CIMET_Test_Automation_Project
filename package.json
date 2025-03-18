@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start" : "npx playwright test && npm run report",
     "report": "node ./report-utils/preAllureReport.js && allure generate ./allure-results -o ./allure-report --clean"
   },
   "keywords": [],
@@ -16,8 +17,11 @@
   },
   "dependencies": {
     "@faker-js/faker": "^9.6.0",
+    "@types/winston": "^2.4.4",
     "allure-js-commons": "^3.2.0",
     "date-fns": "^4.1.0",
-    "dotenv": "^16.4.7"
+    "dotenv": "^16.4.7",
+    "winston": "^3.17.0",
+    "winston-daily-rotate-file": "^5.0.0"
   }
 }
